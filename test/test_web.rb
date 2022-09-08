@@ -753,7 +753,7 @@ describe Sidekiq::Web do
 
     def app
       app = Sidekiq::Web.new
-      app.use Rack::Session::Cookie, secret: "v3rys3cr31", host: "nicehost.org"
+      app.use Rack::Session::Cookie, secret: "v3rys3cr31" * 7, host: "nicehost.org"
       app
     end
 
@@ -762,7 +762,7 @@ describe Sidekiq::Web do
 
       session_options = last_request.env["rack.session"].options
 
-      assert_equal "v3rys3cr31", session_options[:secret]
+      assert_equal "v3rys3cr31" * 7, session_options[:secret]
       assert_equal "nicehost.org", session_options[:host]
     end
   end
@@ -783,7 +783,7 @@ describe Sidekiq::Web do
 
     def app
       app = Sidekiq::Web.new
-      app.use Rack::Session::Cookie, secret: "v3rys3cr31", host: "nicehost.org"
+      app.use Rack::Session::Cookie, secret: "v3rys3cr31" * 7, host: "nicehost.org"
       app
     end
 

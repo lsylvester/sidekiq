@@ -6,10 +6,11 @@ gem "rake"
 gem "redis"
 gem "redis-namespace"
 gem "redis-client"
-gem "rails", "~> 6.0"
+gem "rails", github: "ioquatix/rails", branch: "patch-3"
 gem "sqlite3", platforms: :ruby
 gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
 gem "after_commit_everywhere"
+gem "rack", "~> 3.0.0"
 
 # mail dependencies
 gem "net-smtp", platforms: :mri, require: false
